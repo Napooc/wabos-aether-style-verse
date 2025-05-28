@@ -2,29 +2,33 @@
 import { useState } from 'react';
 import { Search, User, ShoppingBag, Heart, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-sand/20 shadow-luxury">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-mocha to-bronze rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-cream font-bold text-xl font-serif">W</span>
             </div>
             <span className="text-3xl font-bold gradient-text font-serif tracking-wide">WABOS</span>
-          </div>
+          </Link>
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-12">
-            <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Home</a>
-            <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Collection</a>
-            <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">AI Stylist</a>
-            <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Trends</a>
-            <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Atelier</a>
+            <Link to="/" className={`transition-colors duration-300 font-medium ${isActive('/') ? 'text-mocha' : 'text-charcoal hover:text-mocha'}`}>Home</Link>
+            <Link to="/collection" className={`transition-colors duration-300 font-medium ${isActive('/collection') ? 'text-mocha' : 'text-charcoal hover:text-mocha'}`}>Collection</Link>
+            <Link to="/ai-stylist" className={`transition-colors duration-300 font-medium ${isActive('/ai-stylist') ? 'text-mocha' : 'text-charcoal hover:text-mocha'}`}>AI Stylist</Link>
+            <Link to="/trends" className={`transition-colors duration-300 font-medium ${isActive('/trends') ? 'text-mocha' : 'text-charcoal hover:text-mocha'}`}>Trends</Link>
+            <Link to="/atelier" className={`transition-colors duration-300 font-medium ${isActive('/atelier') ? 'text-mocha' : 'text-charcoal hover:text-mocha'}`}>Atelier</Link>
           </nav>
 
           {/* Search Bar */}
@@ -47,9 +51,11 @@ const Header = () => {
             <Button variant="ghost" size="icon" className="text-charcoal hover:bg-sand/20 hover:text-mocha transition-all duration-300 rounded-full">
               <ShoppingBag className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-charcoal hover:bg-sand/20 hover:text-mocha transition-all duration-300 rounded-full">
-              <User className="w-5 h-5" />
-            </Button>
+            <Link to="/profile">
+              <Button variant="ghost" size="icon" className="text-charcoal hover:bg-sand/20 hover:text-mocha transition-all duration-300 rounded-full">
+                <User className="w-5 h-5" />
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
@@ -65,11 +71,11 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-6 border-t border-sand/20 bg-white/95 backdrop-blur-md">
             <nav className="flex flex-col space-y-6">
-              <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Home</a>
-              <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Collection</a>
-              <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">AI Stylist</a>
-              <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Trends</a>
-              <a href="#" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Atelier</a>
+              <Link to="/" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Home</Link>
+              <Link to="/collection" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Collection</Link>
+              <Link to="/ai-stylist" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">AI Stylist</Link>
+              <Link to="/trends" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Trends</Link>
+              <Link to="/atelier" className="text-charcoal hover:text-mocha transition-colors duration-300 font-medium">Atelier</Link>
               <div className="pt-4">
                 <input
                   type="text"
