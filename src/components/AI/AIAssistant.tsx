@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { MessageSquare, Zap, Sparkles } from 'lucide-react';
+import { MessageSquare, Sparkles, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const AIAssistant = () => {
@@ -8,36 +8,36 @@ const AIAssistant = () => {
   const [message, setMessage] = useState('');
 
   const aiMessages = [
-    "Hi! I'm Aria, your AI fashion consultant.",
-    "I can help you find the perfect outfit!",
-    "Want me to analyze your style preferences?",
-    "I've found some trending items just for you!",
-    "Ready to create your signature look?"
+    "Hello, I'm Aria, your personal style curator.",
+    "I can help you discover timeless pieces.",
+    "Shall I analyze your aesthetic preferences?",
+    "I've found some exquisite pieces for you.",
+    "Ready to refine your signature style?"
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setMessage(aiMessages[Math.floor(Math.random() * aiMessages.length)]);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-8 right-8 z-40">
       {/* AI Assistant Bubble */}
-      <div className={`cyber-card max-w-xs mb-4 transition-all duration-500 ${isActive ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'}`}>
-        <div className="flex items-start space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-neon-purple to-neon-cyan rounded-full flex items-center justify-center animate-pulse-neon">
-            <Sparkles className="w-5 h-5 text-white" />
+      <div className={`luxury-card max-w-sm mb-6 transition-all duration-700 ${isActive ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'} rounded-2xl p-6`}>
+        <div className="flex items-start space-x-4">
+          <div className="w-12 h-12 bg-gradient-to-br from-mocha to-bronze rounded-full flex items-center justify-center shadow-luxury animate-gentle-float">
+            <Sparkles className="w-6 h-6 text-cream" />
           </div>
           <div className="flex-1">
-            <p className="text-sm text-white/90">{message}</p>
-            <div className="flex space-x-2 mt-2">
-              <Button size="sm" variant="outline" className="text-xs border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-black">
+            <p className="text-charcoal mb-4 leading-relaxed">{message}</p>
+            <div className="flex space-x-3">
+              <Button size="sm" variant="outline" className="text-xs border-mocha/30 text-mocha hover:bg-mocha hover:text-cream rounded-full px-4 py-2 transition-all duration-300">
                 Style Me
               </Button>
-              <Button size="sm" variant="outline" className="text-xs border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white">
+              <Button size="sm" variant="outline" className="text-xs border-bronze/30 text-bronze hover:bg-bronze hover:text-cream rounded-full px-4 py-2 transition-all duration-300">
                 Trends
               </Button>
             </div>
@@ -48,11 +48,11 @@ const AIAssistant = () => {
       {/* AI Assistant Button */}
       <Button
         onClick={() => setIsActive(!isActive)}
-        className="w-14 h-14 rounded-full bg-gradient-to-r from-neon-purple to-neon-cyan hover:scale-110 transition-all duration-300 shadow-lg animate-float"
+        className="w-16 h-16 rounded-full bg-gradient-to-br from-mocha to-bronze hover:from-bronze hover:to-mocha luxury-hover shadow-luxury-lg"
       >
         <div className="relative">
-          <MessageSquare className="w-6 h-6 text-white" />
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-neon-rose rounded-full animate-pulse"></div>
+          <MessageSquare className="w-7 h-7 text-cream" />
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-gold rounded-full animate-gentle-float"></div>
         </div>
       </Button>
     </div>

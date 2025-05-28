@@ -1,12 +1,12 @@
 
 const FloatingParticles = () => {
   return (
-    <div className="floating-particles">
-      <div className="particle particle-1"></div>
-      <div className="particle particle-2"></div>
-      <div className="particle particle-3"></div>
-      <div className="particle particle-4"></div>
-      <div className="particle particle-5"></div>
+    <div className="floating-elements">
+      <div className="floating-element floating-element-1"></div>
+      <div className="floating-element floating-element-2"></div>
+      <div className="floating-element floating-element-3"></div>
+      <div className="floating-element floating-element-4"></div>
+      <div className="floating-element floating-element-5"></div>
     </div>
   );
 };

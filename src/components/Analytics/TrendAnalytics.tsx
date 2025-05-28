@@ -1,90 +1,90 @@
 
-import { TrendingUp, BarChart3, Zap, Target } from 'lucide-react';
+import { TrendingUp, BarChart3, Sparkles, Target } from 'lucide-react';
 
 const TrendAnalytics = () => {
   const trendData = [
-    { trend: "Cyber Fashion", growth: "+145%", color: "from-neon-purple to-neon-cyan" },
-    { trend: "Sustainable Tech", growth: "+89%", color: "from-neon-cyan to-neon-rose" },
-    { trend: "AI Patterns", growth: "+67%", color: "from-neon-rose to-neon-gold" },
-    { trend: "Holographic Styles", growth: "+123%", color: "from-neon-gold to-neon-purple" }
+    { trend: "Minimalist Luxury", growth: "+145%", color: "from-mocha to-bronze" },
+    { trend: "Sustainable Couture", growth: "+89%", color: "from-bronze to-gold" },
+    { trend: "Artisan Craftsmanship", growth: "+123%", color: "from-gold to-sand" },
+    { trend: "Timeless Elegance", growth: "+167%", color: "from-sand to-mocha" }
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-24 px-6 bg-gradient-to-b from-cream to-beige">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold font-['Orbitron'] gradient-text mb-6">
-            AI Trend Analytics
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-7xl font-bold font-serif gradient-text mb-8">
+            Style Intelligence
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Real-time fashion intelligence powered by machine learning algorithms
+          <p className="text-xl md:text-2xl text-mocha/80 max-w-3xl mx-auto leading-relaxed font-light">
+            Sophisticated fashion analytics powered by artificial intelligence and global style consciousness
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Trend Chart */}
-          <div className="cyber-card">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-white">Trending Categories</h3>
-              <BarChart3 className="w-6 h-6 text-neon-cyan" />
+          <div className="luxury-card p-8 rounded-2xl">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-2xl font-semibold text-charcoal font-serif">Emerging Trends</h3>
+              <BarChart3 className="w-8 h-8 text-mocha" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {trendData.map((item, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${item.color}`}></div>
-                    <span className="text-white font-medium">{item.trend}</span>
+                <div key={index} className="flex items-center justify-between p-6 bg-pearl rounded-xl border border-sand/20">
+                  <div className="flex items-center space-x-4">
+                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${item.color}`}></div>
+                    <span className="text-charcoal font-medium text-lg">{item.trend}</span>
                   </div>
-                  <span className="text-neon-cyan font-semibold">{item.growth}</span>
+                  <span className="text-mocha font-semibold text-lg">{item.growth}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* AI Insights */}
-          <div className="cyber-card">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-white">AI Insights</h3>
-              <Zap className="w-6 h-6 text-neon-purple" />
+          <div className="luxury-card p-8 rounded-2xl">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-2xl font-semibold text-charcoal font-serif">Curator Insights</h3>
+              <Sparkles className="w-8 h-8 text-bronze" />
             </div>
-            <div className="space-y-4">
-              <div className="p-4 bg-gradient-to-r from-neon-purple/10 to-neon-cyan/10 rounded-lg border border-neon-purple/30">
-                <div className="flex items-center space-x-2 mb-2">
-                  <Target className="w-4 h-4 text-neon-purple" />
-                  <span className="text-neon-purple font-semibold">Style Prediction</span>
+            <div className="space-y-6">
+              <div className="p-6 bg-gradient-to-r from-mocha/5 to-bronze/5 rounded-xl border border-mocha/20">
+                <div className="flex items-center space-x-3 mb-3">
+                  <Target className="w-5 h-5 text-mocha" />
+                  <span className="text-mocha font-semibold">Style Forecast</span>
                 </div>
-                <p className="text-white/80 text-sm">Metallic textures will peak in the next 2 weeks based on social sentiment analysis</p>
+                <p className="text-charcoal/80 leading-relaxed">Textural richness and sustainable luxury materials are defining the next season's sophisticated aesthetic</p>
               </div>
               
-              <div className="p-4 bg-gradient-to-r from-neon-cyan/10 to-neon-rose/10 rounded-lg border border-neon-cyan/30">
-                <div className="flex items-center space-x-2 mb-2">
-                  <TrendingUp className="w-4 h-4 text-neon-cyan" />
-                  <span className="text-neon-cyan font-semibold">Market Analysis</span>
+              <div className="p-6 bg-gradient-to-r from-bronze/5 to-gold/5 rounded-xl border border-bronze/20">
+                <div className="flex items-center space-x-3 mb-3">
+                  <TrendingUp className="w-5 h-5 text-bronze" />
+                  <span className="text-bronze font-semibold">Market Analysis</span>
                 </div>
-                <p className="text-white/80 text-sm">Your style profile aligns 94% with emerging quantum aesthetic trends</p>
+                <p className="text-charcoal/80 leading-relaxed">Your style profile perfectly aligns with the emerging artisanal luxury movement and conscious consumption trends</p>
               </div>
               
-              <div className="p-4 bg-gradient-to-r from-neon-rose/10 to-neon-gold/10 rounded-lg border border-neon-rose/30">
-                <div className="flex items-center space-x-2 mb-2">
-                  <Zap className="w-4 h-4 text-neon-rose" />
-                  <span className="text-neon-rose font-semibold">Personal Forecast</span>
+              <div className="p-6 bg-gradient-to-r from-gold/5 to-sand/5 rounded-xl border border-gold/20">
+                <div className="flex items-center space-x-3 mb-3">
+                  <Sparkles className="w-5 h-5 text-gold" />
+                  <span className="text-gold font-semibold">Personal Curation</span>
                 </div>
-                <p className="text-white/80 text-sm">Recommended investment: Tech-wear accessories for your Q2 wardrobe evolution</p>
+                <p className="text-charcoal/80 leading-relaxed">Investment recommendation: Heritage pieces and timeless silhouettes for your refined wardrobe evolution</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Interactive Trend Map */}
-        <div className="cyber-card">
-          <h3 className="text-2xl font-semibold text-white mb-6 text-center">Global Fashion Pulse</h3>
-          <div className="h-64 bg-gradient-to-br from-purple-900/20 via-cyan-900/20 to-rose-900/20 rounded-lg flex items-center justify-center">
+        <div className="luxury-card p-12 rounded-2xl">
+          <h3 className="text-3xl font-semibold text-charcoal mb-8 text-center font-serif">Global Style Pulse</h3>
+          <div className="h-80 bg-gradient-to-br from-pearl via-beige to-sand rounded-2xl flex items-center justify-center relative overflow-hidden">
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-neon-purple to-neon-cyan rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-neon">
-                <TrendingUp className="w-10 h-10 text-white" />
+              <div className="w-24 h-24 bg-gradient-to-br from-mocha to-bronze rounded-full flex items-center justify-center mx-auto mb-6 shadow-luxury-lg animate-gentle-float">
+                <TrendingUp className="w-12 h-12 text-cream" />
               </div>
-              <p className="text-white/70">Interactive trend visualization loading...</p>
-              <p className="text-sm text-neon-cyan mt-2">AI analyzing 2.4M fashion data points</p>
+              <p className="text-charcoal/70 text-lg mb-3">Style Intelligence Mapping</p>
+              <p className="text-sm text-mocha/70">Analyzing 2.4M luxury fashion data points</p>
             </div>
           </div>
         </div>
