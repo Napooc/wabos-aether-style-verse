@@ -1,14 +1,16 @@
 
 import { useState } from 'react';
-import { Filter, Grid, List, SlidersHorizontal, Star, Heart, ShoppingBag } from 'lucide-react';
+import { Filter, Grid, List, SlidersHorizontal, Star, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Layout/Header';
 import AIAssistant from '@/components/AI/AIAssistant';
 import FloatingParticles from '@/components/Effects/FloatingParticles';
+import { useCart } from '@/contexts/CartContext';
 
 const Collection = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const { addToCart } = useCart();
 
   const categories = ['all', 'dresses', 'outerwear', 'accessories', 'footwear', 'jewelry'];
 
@@ -80,6 +82,17 @@ const Collection = () => {
   const filteredProducts = selectedCategory === 'all' 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  const handleAddToCart = (product: any) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      originalPrice: product.originalPrice,
+      image: product.image,
+      category: product.category,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pearl via-cream to-beige relative">
@@ -208,8 +221,10 @@ const Collection = () => {
                       )}
                     </div>
                     
-                    <Button className="bg-gradient-to-r from-mocha to-bronze hover:from-bronze hover:to-mocha text-cream rounded-full px-6">
-                      <ShoppingBag className="w-4 h-4 mr-2" />
+                    <Button 
+                      className="bg-gradient-to-r from-mocha to-bronze hover:from-bronze hover:to-mocha text-cream rounded-full px-6"
+                      onClick={() => handleAddToCart(product)}
+                    >
                       Add to Cart
                     </Button>
                   </div>
